@@ -1,0 +1,37 @@
+{
+  "name": "crawford-skills",
+  "owner": {
+    "name": "Keith Crawford",
+    "url": "https://keithcrawford.me"
+  },
+  "metadata": {
+    "description": "Portable Agent Skills for Claude Code, Codex, and other agent runtimes.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "reframe",
+      "description": "Turn a substantial conversational analysis into a structured Markdown report via a second analytical pass.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/reframe"
+      ],
+      "version": "1.0.0",
+      "author": {
+        "name": "Keith Crawford",
+        "url": "https://keithcrawford.me"
+      },
+      "license": "CC-BY-4.0",
+      "homepage": "https://github.com/tsudo/skills",
+      "repository": "https://github.com/tsudo/skills",
+      "keywords": [
+        "writing",
+        "analysis",
+        "report",
+        "synthesis"
+      ],
+      "category": "writing"
+    }
+  ]
+}
