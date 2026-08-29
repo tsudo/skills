@@ -22,7 +22,7 @@
         "name": "Keith Crawford",
         "url": "https://keithcrawford.me"
       },
-      "license": "CC-BY-4.0",
+      "license": "MIT",
       "homepage": "https://github.com/tsudo/skills",
       "repository": "https://github.com/tsudo/skills",
       "keywords": [
@@ -32,6 +32,30 @@
         "synthesis"
       ],
       "category": "writing"
+    },
+    {
+      "name": "grill-me",
+      "description": "Relentless interview that sharpens a half-formed idea, plan, or decision until it is committable, closing with a pre-mortem that becomes pass/fail criteria.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/grill-me"
+      ],
+      "version": "1.0.0",
+      "author": {
+        "name": "Keith Crawford",
+        "url": "https://keithcrawford.me"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/tsudo/skills",
+      "repository": "https://github.com/tsudo/skills",
+      "keywords": [
+        "planning",
+        "decision",
+        "interview",
+        "pre-mortem"
+      ],
+      "category": "productivity"
     }
   ]
 }

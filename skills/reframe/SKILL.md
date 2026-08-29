@@ -1,7 +1,7 @@
 ---
 name: reframe
 description: Turn a substantial analysis, investigation, comparison, or exploratory conversation into a standalone Markdown report, using the restructuring as a second analytical pass that re-checks conclusions, assumptions, evidence, risks, and recommendations. Use this whenever someone asks to write this up, turn this into a report, document this decision, make this durable, or produce a findings document. Use it too when a discussion has accumulated real analysis that a reader who was not there would need reconstructed, even if nobody asks for a report by name. Do not use it for short factual answers, status updates, or transcripts.
-license: CC-BY-4.0
+license: MIT
 metadata:
   author: "Keith Crawford"
   version: "1.0.0"
@@ -98,4 +98,4 @@ Only include `Structured Review Findings` when the second pass found something m
 
 ---
 
-*`reframe` by [Keith Crawford](https://keithcrawford.me). Licensed [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/). Source: [github.com/tsudo/skills](https://github.com/tsudo/skills).*
+*`reframe` by [Keith Crawford](https://keithcrawford.me), from [github.com/tsudo/skills](https://github.com/tsudo/skills). Copyright (c) 2026 Keith Crawford. `SPDX-License-Identifier: MIT` — full text in [LICENSE](https://github.com/tsudo/skills/blob/main/LICENSE).*

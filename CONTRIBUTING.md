@@ -17,8 +17,9 @@ So a skill:
   skills, nothing from the repository root
 - carries no absolute paths, credentials, customer data, or anything private
   to the project it came from
-- includes `license: CC-BY-4.0` frontmatter and an attribution footer, since
-  a copied file leaves the LICENSE behind
+- includes `license: MIT` frontmatter and a footer carrying the author, the
+  copyright line, an SPDX identifier, and an absolute link to the repository
+  LICENSE, so a copied folder still names its terms
 
 Three commands check most of that:
 

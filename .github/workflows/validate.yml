@@ -21,19 +21,55 @@ jobs:
       - name: Install skills-ref
         run: python -m pip install skills-ref
 
-      - name: Validate reframe
-        run: agentskills validate ./skills/reframe
+      - name: Validate every skill
+        run: |
+          shopt -s nullglob
+          found=0
+          for dir in skills/*/; do
+            found=1
+            echo "::group::${dir}"
+            agentskills validate "./${dir%/}"
+            echo "::endgroup::"
+          done
+          if [ "$found" -eq 0 ]; then
+            echo "No skill directories found under skills/."
+            exit 1
+          fi
 
       - name: Check for absolute paths
         run: |
-          if grep -rnE '/home/|/Users/|C:\\' skills/reframe; then
+          if grep -rnE '/home/|/Users/|C:\\' skills/; then
             echo "Absolute path found. A skill must not reference one machine."
             exit 1
           fi
 
       - name: Check for outward references
         run: |
-          if grep -rn '\.\./' skills/reframe; then
+          if grep -rn '\.\./' skills/; then
             echo "Reference escapes the skill directory."
             exit 1
           fi
+
+      - name: Check every skill carries its licence and copyright notice
+        run: |
+          status=0
+          for dir in skills/*/; do
+            file="${dir}SKILL.md"
+            if ! grep -q '^license: MIT$' "$file"; then
+              echo "$file does not declare 'license: MIT'."
+              status=1
+            fi
+            if ! grep -q 'Copyright (c) 2026 Keith Crawford' "$file"; then
+              echo "$file has no copyright notice. A copied file leaves LICENSE behind."
+              status=1
+            fi
+            if ! grep -q 'SPDX-License-Identifier: MIT' "$file"; then
+              echo "$file has no SPDX identifier in its footer."
+              status=1
+            fi
+            if ! grep -q 'blob/main/LICENSE' "$file"; then
+              echo "$file footer does not link the repository LICENSE."
+              status=1
+            fi
+          done
+          exit "$status"

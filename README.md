@@ -1,6 +1,6 @@
 # Tsudo's AI skills library
 
-![License: CC-BY-4.0](https://img.shields.io/badge/License-CC--BY--4.0-lightgrey.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg)
 
 ## Welcome
 
@@ -45,4 +45,8 @@ If you would like to suggest an improvement or add a skill, see
 
 ## License
 
-[CC-BY-4.0](LICENSE). Use and adapt these freely, with attribution.
+[MIT](LICENSE). Use and adapt these freely. Keep the copyright notice with any
+copy, which is the one thing the licence asks.
+
+Each `SKILL.md` carries a copyright line and an SPDX identifier pointing back to
+this licence, so a copied folder still names its terms.

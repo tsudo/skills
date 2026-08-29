@@ -13,5 +13,5 @@ List the checks performed.
 
 ## Licensing and Attribution
 
-Everything here ships under CC-BY-4.0. Confirm you wrote this, or say where it
+Everything here ships under MIT. Confirm you wrote this, or say where it
 came from and under what license. Write `None` if the change touches neither.
