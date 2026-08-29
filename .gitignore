@@ -14,3 +14,7 @@ Thumbs.db
 
 # Local publication bookkeeping. Not part of the published repository.
 publication-manifest.json
+
+# Sync clients leave name-clash copies in this tree; they must never be committed.
+*Name clash*
+*conflicted copy*

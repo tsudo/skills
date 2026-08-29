@@ -76,11 +76,18 @@ jobs:
 
       - name: Check every bundled file carries an SPDX identifier
         run: |
-          status=0
-          for file in $(find skills -type f ! -name SKILL.md); do
-            if ! grep -q 'SPDX-License-Identifier: MIT' "$file"; then
-              echo "$file has no SPDX identifier. Bundled files are redistributed with the skill and leave LICENSE behind."
-              status=1
-            fi
-          done
-          exit "$status"
+          missing=$(find skills -type f ! -name 'SKILL.md' -exec grep -L 'SPDX-License-Identifier: MIT' {} +)
+          if [ -n "$missing" ]; then
+            echo "$missing"
+            echo "Bundled files are redistributed with the skill and leave LICENSE behind."
+            exit 1
+          fi
+
+      - name: Check for stray sync-conflict files
+        run: |
+          strays=$(find skills -type f \( -name '*Name clash*' -o -name '*conflicted copy*' -o -name '*.orig' -o -name '*.rej' \))
+          if [ -n "$strays" ]; then
+            echo "$strays"
+            echo "A sync client or merge left these behind. They must not ship."
+            exit 1
+          fi
