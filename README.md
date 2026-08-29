@@ -10,6 +10,16 @@ These are skills I have authored or adapted. I hope you find them useful.
 
 *Each skill is standalone*: install or copy a single skill directory and it works, with nothing else from this repo.
 
+## Skills
+
+| Skill | What it does | Credit |
+| --- | --- | --- |
+| [`reframe`](skills/reframe/SKILL.md) | Turns a long analysis or conversation into a standalone report, using the restructuring as a second analytical pass. | — |
+| [`grill-me`](skills/grill-me/SKILL.md) | Interviews you about a half-formed plan until it is committable, then closes with a pre-mortem. | [Matt Pocock](https://github.com/mattpocock/skills), [Daniel Miessler](https://github.com/danielmiessler/LifeOS) |
+
+Each skill names its full sources, their licences, and the commits they were read
+at in its own `## Credits` section.
+
 ## Install
 
 ### If you use Claude Code
@@ -30,17 +40,6 @@ npx skills add tsudo/skills --skill reframe
 ```bash
 cp -r skills/reframe ~/.claude/skills/
 ```
-
-## Skills
-
-| Skill | What it does |
-| --- | --- |
-| [`reframe`](skills/reframe/SKILL.md) | Turns an analysis or long conversation into a standalone Markdown report, using the restructuring as a second pass over the reasoning. |
-| [`grill-me`](skills/grill-me/SKILL.md) | Interviews you about a half-formed idea, plan, or decision until it is committable. Works in rounds, checkpoints to a file so long sessions survive, and closes with a pre-mortem that turns failure modes into pass/fail criteria. Credit: [Matt Pocock](https://github.com/mattpocock/skills) and [Daniel Miessler](https://github.com/danielmiessler/LifeOS) — see the skill's [Credits](skills/grill-me/SKILL.md#credits). |
-
-Where a skill takes method from someone else's work, the credit sits in its own
-`## Credits` section naming the source, its licence, and the commit it was read
-at. Attribution is courtesy here, not a licence condition.
 
 ## Feedback
 
