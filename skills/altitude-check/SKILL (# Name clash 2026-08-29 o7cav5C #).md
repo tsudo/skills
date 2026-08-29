@@ -5,7 +5,7 @@ license: MIT
 compatibility: Works with or without an issue tracker. Given one - Linear, Jira, GitHub Issues - it reads a parent issue and its children; given none, it works from a plan, a task list, a pasted board export, or the session so far. Checks the tracker cannot answer are reported as not applicable rather than skipped. A read-only source is fine, since it proposes changes rather than making them. Writes a file only if you ask for one.
 metadata:
   author: "Keith Crawford"
-  version: "1.1.0"
+  version: "1.0.0"
   source-canon: "altitude-check"
   ported: "2026-08-29"
 ---
@@ -49,15 +49,9 @@ Anything missing is worked around, not faked. Say which of the three you had.
 
 ## Procedure
 
-### Step 1 - Resolve what you are assessing, and how this project writes things
+### Step 1 - Resolve what you are assessing
 
-Take the target from the invocation. If it is ambiguous, ask. Do not infer it from whatever the session happens to have been discussing most recently, because the wrong target produces a confident assessment of the wrong thing.
-
-**Then go looking for the project's document conventions, before drafting anything.** Check `CLAUDE.md`, `AGENTS.md`, `STYLE.md`, `CONTRIBUTING.md`, and any `docs/style` file. Where a project states conventions, they outrank everything this skill says about shape: heading case, spelling, date format, filename, and whether tables are used at all. `## Output` below specifies which sections to produce, never how to format them.
-
-Do this first rather than at the point of writing. Conventions change how the whole document gets drafted, and discovering them at the end means rewriting it.
-
-If the project states nothing, write plainly: lead with the conclusion, no filler transitions, no marketing register, concrete over abstract.
+Take it from the invocation. If it is ambiguous, ask. Do not infer it from whatever the session happens to have been discussing most recently, because the wrong target produces a confident assessment of the wrong thing.
 
 ### Step 2 - Establish the goal
 
@@ -75,14 +69,7 @@ Verbatim matters on every path that has words to copy. A paraphrase at the sourc
 
 **A vague goal is a stop condition, not an inconvenience.** If what you get back reads as an aspiration or a restatement of the task list, repair it with the user before going further. Six of the eight checks below compare open work against it.
 
-**If there is nobody to ask** - a scheduled or single-shot run - you have two moves and they are not interchangeable:
-
-- **Nothing states a goal, but the evidence implies a specific one.** Reconstruct it from what you can read: the title, recent comments, the decision log. Then label it unconfirmed in the output, say what you built it from, and make confirming it the first open question. An assessment against a labelled reconstruction is useful. The label is what makes it honest.
-- **What you find is vague, and no evidence sharpens it.** Do not assess. Report that the goal is not specific enough to judge against, quote what you found, and say what a usable version would need.
-
-A confident assessment against a vague or silently-invented goal is the worst thing this skill can produce, because it reads exactly like a good one.
-
-**A reconstructed goal calls for more suspicion of your own findings, not less.** You wrote the thing the work is being measured against, so findings against it are partly findings against your own reading. Say so where it matters.
+**If the goal is vague and there is nobody to ask** - a scheduled or single-shot run - do not assess. Report that the goal is not specific enough to judge against, quote what you found, and say what a usable version would need. A confident assessment against a vague goal is the worst output this skill can produce, because it reads exactly like a good one.
 
 ### Step 3 - Read the open work
 
@@ -129,6 +116,10 @@ Run every check. Each returns a finding or an explicit `clear`. A silent skip is
 
 **Where the source cannot answer a check** - no priority field, no dependency links, no timestamps - record `n/a, no X available`. That is a verdict. Reporting `clear` for a check you could not run is the failure this rule exists to prevent.
 
+**Split the verdict where a check has an answerable half.** Stalls and work-in-progress load each ask two things, and without a tracker the second half usually has no source: you can count what is in flight without knowing what this team finishes, and a plan can self-report one stall without giving you a rhythm to judge the rest against. Write both halves - `finding on the count, n/a on the throughput` - rather than forcing one verdict and losing the real answer. Critical path behaves the same way: record `n/a` where no dependency links exist, then give the chain the goal itself implies, tagged `Inferred`.
+
+Without a tracker, expect roughly half of these eight to come back `n/a` or split. That is the honest result, not a degraded one.
+
 Phase A feeds this. A finding that a decision landed and nothing reflects it usually becomes a coverage gap here.
 
 Judge against the goal, not against what is comfortable. **An assessment that never contradicts the plan is not an assessment.**
@@ -145,26 +136,26 @@ Judge against the goal, not against what is comfortable. **An assessment that ne
 
 Show the findings and the recommendation together. Tag each Phase A finding `Verified` if you read it in the source, or `Inferred` if you deduced it from titles, states, or dates. Every recommendation carries its reason.
 
-**A hygiene fix is a tracker-only thing, and it is narrow:** clearing a dependency on something already finished, or correcting a state the tracker itself contradicts. `Verified` ones can be applied without asking, **in an interactive run only** - see the non-interactive rule two paragraphs down, which overrides this one entirely. Everything else - creating work, changing a priority, changing a state, anything judgement-shaped - stops for explicit approval.
+**A hygiene fix is a tracker-only thing, and it is narrow:** clearing a dependency on something already finished, or correcting a state the tracker itself contradicts. `Verified` ones can be applied without asking. Everything else - creating work, changing a priority, changing a state, anything judgement-shaped - stops for explicit approval.
 
 **Never edit the user's own files on this authority.** Correcting a plan document, a README, or a design note is not hygiene however obviously right it looks, because those are the source you were reading rather than a tracker's bookkeeping. Propose the edit and let them make it. This skill never mutates a tracker, and never touches a document, on its own authority.
 
 **In a non-interactive run** - a scheduled job, a single-shot invocation, anything with no turn to answer in - there is nobody to approve anything. Present the whole thing in one pass and change nothing at all, hygiene fixes included. List what you would have applied so a person can approve it later.
 
-**Write a file only if the user wants one.** If they do, put it where they say; where nobody can be asked, put it beside the project's other documents and say where you put it. Follow the conventions found in Step 1, and never overwrite an earlier one - the difference between two of these is worth more than either alone. The section set is in `## Output` below.
+**Write a file only if the user wants one.** Most runs end in the session, which is the point of being able to run this in the middle of one. If they do want a file, ask where it goes, follow the project's own document conventions where it states any, and never overwrite an earlier one - the difference between two of these is worth more than either alone. The section set is in `## Output` below.
 
 ## Output
 
-In the session, always. In a file, on request. **These are sections, not a format** - render them however the project writes documents.
+In the session, always. In a file, on request.
 
-- **What this was judged against** - the goal and the exclusions, and where they came from. Mark a reconstructed goal as unconfirmed. Where they were elicited in-session rather than read, write them out in full, because otherwise they are gone when the session ends.
-- **What you had to work with** - which of the three inputs were available and at what fidelity, in a line. A reader cannot weigh the assessment without it.
 - **Where it stands** - one paragraph on where the work actually sits, in goal terms. Prose about position, not a list of what each item is doing.
-- **Findings** - grouped by reconciliation direction, however many each produced. Each carries its evidence and its `Verified` or `Inferred` tag.
-- **Assessment** - all eight checks, each with its verdict, including the `n/a` and split ones.
+- **Findings** - one row per reconciliation direction: the finding, its evidence, and the `Verified` or `Inferred` tag.
+- **Assessment** - all eight checks, each with its verdict.
 - **Recommendation** - the next thing and why it beats the runner-up, what comes after, what to stop, what to create, what to re-rank.
 - **Open questions** - decisions not yet made that shape what comes next, each with its options.
 - **Pickup line** - two or three lines someone can start the next session from, leading with the next thing and the one reason for it.
+
+Where the goal, the exclusions, or the decisions were elicited in-session rather than read, include them, because otherwise they are gone when the session ends.
 
 ## What This Skill Does NOT Do
 
@@ -179,9 +170,6 @@ In the session, always. In a file, on request. **These are sections, not a forma
 
 - **A vague goal makes the assessment impossible.** Goal service and coverage gap both compare open work against it. This is the single most likely reason a run produces nothing useful, and the fix is upstream in Step 2, not in working harder at Step 6.
 - **Eight `clear` verdicts on months-old work is a signal, not a clean bill of health.** Two causes needing different fixes: either the goal is too loose to judge against, or the run coasted. Read the goal before assuming the first. On a sharp, observable goal, eight clears means somebody did not really look.
-- **Findings on all eight is the other suspicious result, and it is the more dangerous one.** Especially on a first run against a goal you reconstructed yourself: you wrote the ruler, then found everything failed to measure up. Before reporting it, check that each finding traces to something you read rather than to how you phrased the goal. An over-call reads as thoroughness, which is why nobody catches it.
-
-- **Write a file only when asked.** Most runs end in the session; that is the point of being able to run this in the middle of one. Someone asking where they stand has not asked for a document.
 - **The recommendation is a choice, not a menu.** Handing back five ranked options returns the judgment to the user, which is the work this skill exists to do.
 - **Step 7 creates, it does not describe.** "We should write that down later" has no trigger and nothing watching it. If the goal needs the work and the tracker is writable, it gets an item in this run. If it is not writable, a complete specification in the output is the deliverable.
 - **No standing inventory, but always evidence.** Do not reproduce the task list, a status column, or a completion percentage - the source owns those and cannot go stale, while a copy is wrong at the next transition and gets trusted anyway. Do cite specific ids, dates, and counts against specific findings. "Five in flight, up from three" and "no movement since 02 June" are evidence for a verdict. A report with no ids and no dates in it cannot be checked, which is worse than one slightly out of date.

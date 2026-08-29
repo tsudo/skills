@@ -3,6 +3,30 @@
 Notable changes to this repository. Skills carry their own `version` in
 `SKILL.md` frontmatter; the versions below are repository releases.
 
+## v1.2.0 — 2026-08-29
+
+### Changed
+
+- `altitude-check` 1.0.0 → 1.1.0, from two fresh-context test runs against the
+  published file.
+  - **A written plan is now a first-class source for the goal.** It was named
+    as one in three places and missing from the step that actually establishes
+    the goal, so the trackerless path could dead-end on a plan file sitting
+    right there.
+  - **Non-interactive runs have a path.** Where nobody can be asked, a goal
+    implied by the evidence gets reconstructed and labelled unconfirmed; a goal
+    that is merely vague still stops the run.
+  - **Auto-applied fixes are scoped to trackers, and never to your files.**
+    Correcting a plan or a README is not hygiene, however obviously right it
+    looks. Previously a reader could take the auto-apply clause as licence to
+    edit the documents it had just been reading.
+  - Convention discovery moved into Step 1, ahead of drafting, instead of a
+    clause at the point of writing.
+  - Checks with an answerable half now split their verdict rather than
+    collapsing to one; partial detail no longer aborts a run the way partial
+    access does; and a run that returns findings on all eight checks is called
+    out as suspicious in its own right, not just an all-clear one.
+
 ## v1.1.0 — 2026-08-29
 
 ### Added

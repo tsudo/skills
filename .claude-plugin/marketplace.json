@@ -65,7 +65,7 @@
       "skills": [
         "./skills/altitude-check"
       ],
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "Keith Crawford",
         "url": "https://keithcrawford.me"
