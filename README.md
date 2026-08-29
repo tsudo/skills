@@ -1,4 +1,4 @@
-# skills
+# Tsudo's AI skills library
 
 ![License: CC-BY-4.0](https://img.shields.io/badge/License-CC--BY--4.0-lightgrey.svg)
 
@@ -46,5 +46,3 @@ If you would like to suggest an improvement or add a skill, see
 ## License
 
 [CC-BY-4.0](LICENSE). Use and adapt these freely, with attribution.
-
-Each `SKILL.md` carries its own attribution footer, because a copied file leaves the repository behind.
