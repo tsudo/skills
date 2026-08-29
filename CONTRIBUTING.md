@@ -20,6 +20,8 @@ So a skill:
 - includes `license: MIT` frontmatter and a footer carrying the author, the
   copyright line, an SPDX identifier, and an absolute link to the repository
   LICENSE, so a copied folder still names its terms
+- credits any source it took method from in a `## Credits` section, naming the
+  author, their repository, the licence, and the commit you read it at
 
 Three commands check most of that:
 
