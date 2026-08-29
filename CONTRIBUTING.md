@@ -1,22 +1,26 @@
 # Contributing
 
-## Before Opening a Change
+Fixes and corrections are welcome. A new skill needs a conversation first —
+open an [issue](https://github.com/tsudo/skills/issues) and say what it does
+before you write it.
 
-One change per pull request, and say how you checked it. If the change touches
-a skill, run the three commands under Skill Contributions and paste the results.
+Found a security problem? See [SECURITY.md](SECURITY.md) rather than
+opening an issue.
 
-## Skill Contributions
+## The bar for a skill
 
-Open an issue before adding a new skill. A publishable skill must:
+Everything here has to work in someone else's project on the first run.
+So a skill:
 
-- be useful in a project that has none of your local setup
-- use a `skills/<name>/SKILL.md` directory with `name` matching the directory
-- keep all required context inside its own skill directory
-- contain no absolute paths, credentials, customer data, or anything private to the
-  project it came from
-- include `license: CC-BY-4.0` frontmatter and an attribution footer
+- lives at `skills/<name>/SKILL.md`, with `name` matching the directory
+- keeps everything it needs inside its own directory: no `../`, no sibling
+  skills, nothing from the repository root
+- carries no absolute paths, credentials, customer data, or anything private
+  to the project it came from
+- includes `license: CC-BY-4.0` frontmatter and an attribution footer, since
+  a copied file leaves the LICENSE behind
 
-Run these checks before opening a pull request:
+Three commands check most of that:
 
 ```bash
 agentskills validate ./skills/<name>
@@ -25,20 +29,13 @@ grep -rn '\.\./' skills/<name>
 ```
 
 `agentskills` comes from the `skills-ref` package: `pip install skills-ref`.
-The two `grep` commands should return no matches.
+Both greps should return nothing. CI runs all three on every pull request.
 
-## Commit Statements
+The real test is simpler than the commands: copy the folder into a project
+that has none of your setup, and see whether it still works.
 
-Write a short imperative statement describing the change:
+## What doesn't fit here
 
-- `Add repository scaffold`
-- `Document publication workflow`
-- `Fix license attribution`
-
-This repository does not use Conventional Commits. With one skill per directory
-and no released package, the `feat:`/`fix:` prefixes carry no version semantics
-here and only add noise. Plain sentences are easier to scan in a short log.
-
-## Pull Requests
-
-Say what the change does, how you verified it, and anything you knowingly left undone.
+Skills that only make sense inside one workspace, need a custom installer, or
+expect another skill to be installed alongside them. If it can't survive
+`cp -r` into a stranger's project, it belongs somewhere else.
