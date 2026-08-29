@@ -160,15 +160,4 @@ No other file is created or modified.
 - **Some questions cannot be grilled.** "How should this feel?" needs a prototype, not a discussion. When a question is only answerable by building a throwaway version, record it under `## Open Flags` and say so instead of asking it.
 - **Batched rounds fail when the tree is shallow.** If the frontier holds one question for three rounds running, the topic is a single decision. Ask it directly and finish.
 
-## Credits
-
-Derived from two MIT-licensed sources. Neither is reproduced here; what was taken is method, and the expression is original.
-
-- **`grilling`** - Matt Pocock, [mattpocock/skills](https://github.com/mattpocock/skills), MIT, `Copyright (c) 2026 Matt Pocock`. Source of the design-tree and frontier engine, the recommended-answer-per-question format, and the frontier-empty stop condition. Pinned at `0ab1b63a410a03d3627979a109c8695de27af954` (2026-08-20).
-- **`ISA/Workflows/Grill.md`** - Daniel Miessler, [danielmiessler/LifeOS](https://github.com/danielmiessler/LifeOS), MIT, `Copyright (c) 2025-2026 Daniel Miessler`, itself ported from public PR #1606 by [@asdf8675309](https://github.com/asdf8675309). Source of per-round checkpointing, the bounded stop conditions, the shape check, the strongest-objection line, and the pre-mortem-to-criteria pass. Pinned at `ce046f26495c73f007790971869c94d58e0f6a20` (2026-08-14).
-
-Measured against both sources at those commits: two identical non-blank lines out of 134. Attribution here is courtesy rather than a license condition.
-
----
-
 *`grill-me` by [Keith Crawford](https://keithcrawford.me), from [github.com/tsudo/skills](https://github.com/tsudo/skills). Copyright (c) 2026 Keith Crawford. `SPDX-License-Identifier: MIT` — full text in [LICENSE](https://github.com/tsudo/skills/blob/main/LICENSE).*
