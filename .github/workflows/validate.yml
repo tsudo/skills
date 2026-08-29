@@ -73,3 +73,14 @@ jobs:
             fi
           done
           exit "$status"
+
+      - name: Check every bundled file carries an SPDX identifier
+        run: |
+          status=0
+          for file in $(find skills -type f ! -name SKILL.md); do
+            if ! grep -q 'SPDX-License-Identifier: MIT' "$file"; then
+              echo "$file has no SPDX identifier. Bundled files are redistributed with the skill and leave LICENSE behind."
+              status=1
+            fi
+          done
+          exit "$status"

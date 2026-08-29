@@ -56,6 +56,30 @@
         "pre-mortem"
       ],
       "category": "productivity"
+    },
+    {
+      "name": "altitude-check",
+      "description": "Zoom out on one body of work, judge what is open against its own stated goal, and name the single next thing to do.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/altitude-check"
+      ],
+      "version": "1.0.0",
+      "author": {
+        "name": "Keith Crawford",
+        "url": "https://keithcrawford.me"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/tsudo/skills",
+      "repository": "https://github.com/tsudo/skills",
+      "keywords": [
+        "planning",
+        "prioritization",
+        "project-management",
+        "workstream"
+      ],
+      "category": "productivity"
     }
   ]
 }

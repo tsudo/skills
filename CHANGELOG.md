@@ -3,6 +3,20 @@
 Notable changes to this repository. Skills carry their own `version` in
 `SKILL.md` frontmatter; the versions below are repository releases.
 
+## v1.1.0 — 2026-08-29
+
+### Added
+
+- `altitude-check` — zooms out on one body of work, reads the decisions taken
+  since the plan was written, judges what is open against the goal, and names one
+  next thing to do. Useful mid-session when the work has drilled into sub-tasks
+  and nobody has checked the goal in hours. Works with an issue tracker or
+  without one; checks a source cannot answer are reported as not applicable
+  rather than skipped.
+- CI now asserts an SPDX identifier on every bundled file a skill ships
+  alongside its `SKILL.md`. Nothing bundles anything today, so the check guards
+  the next skill that does — a copied file leaves `LICENSE` behind.
+
 ## v1.0.1 — 2026-08-29
 
 ### Added
