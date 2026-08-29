@@ -2,7 +2,7 @@
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg)
 
-## Welcome to Tsudo's Skills.
+## Welcome to Tsudo's Skills
 
 These are skills I have authored or adapted. I hope you find them useful.
 
@@ -10,7 +10,7 @@ These are skills I have authored or adapted. I hope you find them useful.
 
 ## Skills
 
-- [`reframe`](skills/reframe/SKILL.md) - Turns a long analysis or conversation into a standalone report, using the restructuring as a second analytical pass. 
+- [`reframe`](skills/reframe/SKILL.md) - Turns a long analysis or conversation into a standalone report, using the restructuring as a second analytical pass.
 - [`grill-me`](skills/grill-me/SKILL.md) - Interviews you about a half-formed plan until it is committable, then closes with a pre-mortem. Credits: [Pocock](https://github.com/mattpocock/skills), [Miessler](https://github.com/danielmiessler/LifeOS)
 
 ## Install
