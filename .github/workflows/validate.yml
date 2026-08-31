@@ -19,7 +19,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install skills-ref
-        run: python -m pip install skills-ref
+        run: python -m pip install skills-ref pyyaml
 
       - name: Validate every skill
         run: |
@@ -91,3 +91,22 @@ jobs:
             echo "A sync client or merge left these behind. They must not ship."
             exit 1
           fi
+
+      # The package checks prove themselves before they are trusted. A check
+      # that has never been seen to fail is not known to work, and a check that
+      # has never been seen to pass may be rejecting everything.
+      - name: Prove the OpenAI package checks against known-bad and known-good input
+        run: python scripts/validate-openai-package.py --self-test
+
+      - name: Validate the OpenAI plugin package
+        run: python scripts/validate-openai-package.py
+
+      - name: Build the plugin archive and per-skill zips
+        run: python scripts/validate-openai-package.py --build-archives dist/
+
+      - name: Upload install artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: install-artifacts
+          path: dist/
+          if-no-files-found: error

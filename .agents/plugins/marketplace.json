@@ -1,0 +1,20 @@
+{
+  "name": "tsudo-skills",
+  "interface": {
+    "displayName": "Tsudo's Skills"
+  },
+  "plugins": [
+    {
+      "name": "tsudo-skills",
+      "source": {
+        "source": "local",
+        "path": "."
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

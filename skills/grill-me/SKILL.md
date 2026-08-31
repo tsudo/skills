@@ -1,12 +1,12 @@
 ---
 name: grill-me
-description: Relentless interview that sharpens a half-formed idea, plan, or decision until it is committable. Models the problem as a design tree and works the frontier in rounds - questions asked in batches, each carrying a recommended answer, dependency-ordered so nothing is asked before its prerequisites are settled. Checkpoints every round to a markdown file so long sessions survive context loss, then closes with a pre-mortem that converts failure modes into binary pass/fail criteria. Use this when someone says help me think this through, poke holes in this, stress-test this plan, ask me the hard questions, or I am not sure what I am building yet. Use it too when a plan is about to be built and nobody has stated what would make it fail. Do not use it to review finished work, to write the plan itself, or when the decision is already made.
+description: Interview a half-formed idea, plan, or decision in dependency-ordered rounds until it is committable, then close with a pre-mortem that converts failure modes into binary pass/fail criteria. Use this when someone asks to think something through, poke holes in a plan, or stress-test it before building. Not for reviewing finished work, writing the plan itself, or a decision already made.
 license: MIT
-compatibility: Standalone. Needs no repository, no MCP server, and no particular project layout. Writes one checkpoint file to a location you choose.
+compatibility: Standalone. Needs no repository, no MCP server, and no particular project layout. Writes one checkpoint file to a location you choose, and keeps the checkpoint in the conversation where no writable location exists.
 allowed-tools: "Read Write Glob Grep"
 metadata:
   author: "Keith Crawford"
-  version: "1.0.0"
+  version: "1.1.0"
   source-canon: "grill-me"
   ported: "2026-08-29"
 ---
@@ -44,9 +44,11 @@ If the invocation includes a topic, use it. If the invocation is bare, ask what 
 
 Derive a slug from the topic. Lowercase, hyphen-separated, at most four words.
 
-Ask where the checkpoint should go. If the user does not care, write `grill-{slug}.md` to the working directory. If the project has an obvious home for working notes - a `docs/`, `notes/`, or `scratch/` directory that already exists - offer that instead. State the chosen path before continuing.
+Ask where the checkpoint should go. If the user does not care, write `grill-{slug}.md` to the working directory. If the project has an obvious home for working notes - a `docs/`, `notes/`, or `scratch/` directory that already exists - offer that instead. State the chosen path before continuing. Ask before overwriting a file that already exists.
 
 Create the checkpoint with four headings: `## Shape & Settled Decisions`, `## Question Log`, `## Open Flags`, `## Criteria`.
+
+**Where the runtime has no writable project or file output surface, keep the checkpoint in the conversation instead.** Maintain the same four headings and the same update discipline, and return the full checkpoint Markdown whenever the run stops - at a round boundary, at the twelve-question surface, or at the close. Say once, up front, that the checkpoint lives in the conversation and the user should keep a copy. Nothing else about the interview changes.
 
 ### Step 3 - Run the shape check
 
@@ -102,7 +104,7 @@ Promote each settled decision to `## Shape & Settled Decisions`.
 
 Record anything needing external input under `## Open Flags`.
 
-Write the checkpoint before asking the next round.
+Write the checkpoint before asking the next round. Where it lives in the conversation, restate it there instead.
 
 ### Step 8 - Recompute and repeat
 
@@ -141,7 +143,7 @@ Do not act on the grilled plan until the user confirms you have understood it th
 
 ## Output
 
-One checkpoint file at the path agreed in Step 2, containing the settled shape, the full question log, open flags, and the pre-mortem criteria.
+One checkpoint at the path agreed in Step 2, containing the settled shape, the full question log, open flags, and the pre-mortem criteria. Where the runtime has no writable location, the same checkpoint is returned in the conversation.
 
 No other file is created or modified.
 

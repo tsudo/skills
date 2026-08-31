@@ -1,0 +1,17 @@
+{
+  "name": "tsudo-skills",
+  "version": "1.4.0",
+  "description": "Portable agent skills for planning, analysis, and writing. Interview a half-formed plan, zoom out on a workstream, turn an analysis into a report, or rewrite prose that reads as machine-generated.",
+  "skills": "./skills/",
+  "author": "Keith Crawford",
+  "homepage": "https://github.com/tsudo/skills",
+  "repository": "https://github.com/tsudo/skills",
+  "license": "MIT",
+  "keywords": [
+    "writing",
+    "planning",
+    "analysis",
+    "editing",
+    "productivity"
+  ]
+}

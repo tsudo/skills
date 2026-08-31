@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Portable Agent Skills for Claude Code, Codex, and other agent runtimes.",
-    "version": "1.0.0"
+    "version": "1.4.0"
   },
   "plugins": [
     {
@@ -17,7 +17,7 @@
       "skills": [
         "./skills/reframe"
       ],
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Keith Crawford",
         "url": "https://keithcrawford.me"
@@ -41,7 +41,7 @@
       "skills": [
         "./skills/grill-me"
       ],
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "Keith Crawford",
         "url": "https://keithcrawford.me"
@@ -65,7 +65,7 @@
       "skills": [
         "./skills/altitude-check"
       ],
-      "version": "1.1.0",
+      "version": "1.1.1",
       "author": {
         "name": "Keith Crawford",
         "url": "https://keithcrawford.me"
@@ -89,7 +89,7 @@
       "skills": [
         "./skills/deslopify"
       ],
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Keith Crawford",
         "url": "https://keithcrawford.me"

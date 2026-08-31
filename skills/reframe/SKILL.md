@@ -1,10 +1,11 @@
 ---
 name: reframe
-description: Turn a substantial analysis, investigation, comparison, or exploratory conversation into a standalone Markdown report, using the restructuring as a second analytical pass that re-checks conclusions, assumptions, evidence, risks, and recommendations. Use this whenever someone asks to write this up, turn this into a report, document this decision, make this durable, or produce a findings document. Use it too when a discussion has accumulated real analysis that a reader who was not there would need reconstructed, even if nobody asks for a report by name. Do not use it for short factual answers, status updates, or transcripts.
+description: Turn a substantial analysis or long conversation into a standalone Markdown report, using the restructuring as a second pass over evidence, assumptions, risks, and recommendations. Use this when someone asks to write this up, document a decision, or make findings durable. Not for short factual answers, status updates, or transcripts.
 license: MIT
+compatibility: Standalone. Needs no repository, no MCP server, and no particular project layout. Writes one report to a destination you confirm, and returns it in the conversation where no writable destination exists.
 metadata:
   author: "Keith Crawford"
-  version: "1.0.0"
+  version: "1.0.1"
   source-canon: "reframe"
   ported: "2026-08-28"
 allowed-tools: "Read Write Glob Grep"

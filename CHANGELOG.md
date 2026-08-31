@@ -1,7 +1,57 @@
 # Changelog
 
 Notable changes to this repository. Skills carry their own `version` in
-`SKILL.md` frontmatter; the versions below are repository releases.
+`SKILL.md` frontmatter; the versions below are repository releases. The two
+move independently, and CI now fails the build if either manifest disagrees
+with what it describes.
+
+## v1.4.0 — 2026-08-31
+
+### Added
+
+- **Codex and ChatGPT install paths.** `.codex-plugin/plugin.json` packages the
+  repository as an OpenAI plugin, and `.agents/plugins/marketplace.json` is the
+  catalog `codex plugin marketplace add` actually reads. Both were needed: the
+  manifest alone describes the plugin but does not make the marketplace command
+  resolve.
+- README install instructions split by runtime, covering Codex, ChatGPT, Claude
+  Code, and manual copying, with the destination directory each one reads.
+- `scripts/validate-openai-package.py`, run in CI. It parses both OpenAI
+  manifests, checks the skills path is relative and real, rejects absolute
+  paths, and cross-checks the release version across the plugin manifest, the
+  Claude marketplace manifest, and this changelog. It carries its own control
+  tests, in both directions, and CI runs those before trusting a result.
+- CI builds the plugin archive and a zip per skill, attached to every run. The
+  OpenAI skills endpoint takes either a directory or a zip.
+
+### Changed
+
+- **Every skill description rewritten shorter.** They ran 631 to 1,004
+  characters and led with mechanism. OpenAI runtimes read name and description
+  as discovery metadata before the body, and four long descriptions compete
+  with each other for that attention. Each now opens with when to reach for the
+  skill and what comes out, then names what it is not for. No behaviour changed.
+- `grill-me` 1.0.0 → 1.1.0. **It no longer assumes it can write a file.** Where
+  the runtime has no writable location, which is common in ChatGPT, the
+  checkpoint lives in the conversation and is returned in full whenever the run
+  stops. The interview is otherwise unchanged. It also now asks before
+  overwriting an existing checkpoint.
+- `reframe` 1.0.0 → 1.0.1, `altitude-check` 1.1.0 → 1.1.1, `deslopify` 1.0.0 →
+  1.0.1. Descriptions only. `reframe` gained a `compatibility` line; it already
+  offered the chat fallback in its steps but never said so up front.
+- `CONTRIBUTING.md` explains which frontmatter fields only one runtime reads.
+  `allowed-tools` stays in the files it is in: Claude Code uses it, OpenAI
+  runtimes ignore it, and it is a hint rather than a permission grant anywhere.
+
+### Fixed
+
+- `.claude-plugin/marketplace.json` said `1.0.0` at the top while the changelog
+  had reached v1.3.0, and three of its four plugin entries had drifted from the
+  versions in the skills themselves. The new CI check is what will catch the
+  next one.
+- Releases `v1.1.0`, `v1.2.0`, and `v1.3.0` were described here but never tagged
+  on GitHub. Tags now exist at the commits that introduced them. Advertising an
+  install path invites people to pin a version, and pinning needs a real ref.
 
 ## v1.3.0 — 2026-08-31
 

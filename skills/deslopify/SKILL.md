@@ -1,12 +1,12 @@
 ---
 name: deslopify
-description: Rewrites prose that reads as machine-generated into plain, direct writing. Works in three ordered layers - structure, then sentence constructions, then vocabulary - because fixing word choice while leaving a default essay skeleton intact still reads as generated. Catches count-announcement openers, meta-narration, zoom-out conclusions, negative parallelism (it isn't just X, it's Y), rhetorical Q&A, em-dash stacking, staccato fragment-pairs, fake agency, elegant variation, and a banned-vocabulary set, among others. Follows the project's own style guide where one exists rather than imposing its own. Use this when someone says deslopify this, clean up the voice, make this sound human, rewrite in plain style, cut the AI slop, or this reads like a chatbot wrote it. Use it too when prose is about to ship and nobody has read it for generated tells. Do not use it on agent-facing instruction text - skill files, procedures, prompts, execution steps - which use a flat imperative register on purpose.
+description: Rewrite prose that reads as machine-generated into plain, direct writing, fixing structure first, then sentence constructions, then vocabulary, because fixing word choice over a default essay skeleton still reads as generated. Use this when someone asks to clean up the voice, make writing sound human, or cut the AI slop before it ships. Not for agent-facing instruction text - skill files, procedures, prompts - which use a flat imperative register on purpose.
 license: MIT
 compatibility: Standalone. Needs no repository, no MCP server, and no particular project layout. Reads the project's style guide if it has one. Returns the rewrite in the conversation and writes no files.
 allowed-tools: "Read Grep Glob"
 metadata:
   author: "Keith Crawford"
-  version: "1.0.0"
+  version: "1.0.1"
   source-canon: "deslopify"
   ported: "2026-08-31"
 ---

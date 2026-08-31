@@ -17,23 +17,88 @@ These are skills I have authored or adapted. I hope you find them useful.
 
 ## Install
 
-### If you use Claude Code
+Pick your runtime. One thing to know before you do: Claude Code installs each
+skill as its own plugin, so you can take `reframe` and leave the rest. OpenAI
+packages a repository as a single plugin, so installing it in Codex or ChatGPT
+brings all four. If you only want one skill on an OpenAI runtime, copy the
+directory instead. That path is at the bottom and it works everywhere.
+
+### Codex
+
+Add this repository as a marketplace, then install `tsudo-skills` from the
+plugin picker:
+
+```bash
+codex plugin marketplace add tsudo/skills
+```
+
+Pin to a tag if you would rather not track `main`:
+
+```bash
+codex plugin marketplace add tsudo/skills --ref v1.4.0
+```
+
+For one skill rather than the set, copy it into a directory Codex reads:
+
+```bash
+mkdir -p "$HOME/.agents/skills"
+cp -r skills/reframe "$HOME/.agents/skills/"
+```
+
+Codex picks up the change on its own. Use `$REPO_ROOT/.agents/skills` instead
+to scope a skill to a single project.
+
+### ChatGPT
+
+Two different things travel under the word "skill" here, and they install
+differently.
+
+A **standalone skill** is one directory. Upload it in the desktop app and it
+appears in the Skills sidebar. Take any directory under `skills/` and upload it
+on its own.
+
+A **plugin** is this whole repository, installed from the plugin directory, and
+it works across Chat and Work surfaces rather than the desktop app alone.
+
+Both depend on your account having the feature and, on a work account, on your
+workspace policy allowing it. If you cannot see the Skills sidebar or the plugin
+directory, that is an account or admin question rather than anything about this
+repository.
+
+### Claude Code
 
 ```text
 /plugin marketplace add tsudo/skills
 /plugin install reframe@tsudo-skills
 ```
 
-### If you use a cross-runtime registry
+Swap `reframe` for whichever skill you want. Each installs separately.
+
+### Manual install
+
+Copy the directory where your runtime looks for skills:
+
+| Runtime | Destination |
+| --- | --- |
+| Codex, one user | `$HOME/.agents/skills` |
+| Codex, one repository | `$REPO_ROOT/.agents/skills` |
+| Claude Code | `~/.claude/skills` |
+
+```bash
+cp -r skills/reframe ~/.claude/skills/
+```
+
+There is also a cross-runtime registry, if you already use it:
 
 ```bash
 npx skills add tsudo/skills --skill reframe
 ```
 
-### If you just want the files
+To load a skill through the OpenAI API instead, its create endpoint takes either
+the directory or a single zip of it. Build the zips yourself:
 
 ```bash
-cp -r skills/reframe ~/.claude/skills/
+python scripts/validate-openai-package.py --build-archives dist/
 ```
 
 ## Feedback

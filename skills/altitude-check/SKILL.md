@@ -1,11 +1,11 @@
 ---
 name: altitude-check
-description: Zooms out on one body of work - a tracker workstream, a project, or just what this session has been grinding on - and names the single next thing to do. Checks the open work against its own stated goal for coverage gaps, stalls, phantom blockers, work-in-progress load, and priority drift, and reads the decisions recorded since the plan was made, so a choice that cut the spine of the plan gets caught while every task still looks healthy. Recommends one next thing with the reason it beats the runner-up, the work behind it, what to stop, and what to create. Use this when someone says zoom out, where am I on this, what should I work on next, am I still on the right track, pick this back up, or is this still the right work. Use it too when a long session has drilled into narrow sub-tasks and nobody has checked the goal in hours. Do not use it to order a whole board by priority, to review a session backward for learnings, or to assess two separate bodies of work at once.
+description: Assess one body of work against its own stated goal and name the single next thing to do, reading the decisions taken since the plan was written so a choice that cut the spine of the plan gets caught while every task still looks healthy. Use this when someone asks to zoom out, where they stand, what to work on next, or whether this is still the right work. Not for ranking a whole board by priority or assessing two separate bodies of work at once.
 license: MIT
 compatibility: Works with or without an issue tracker. Given one - Linear, Jira, GitHub Issues - it reads a parent issue and its children; given none, it works from a plan, a task list, a pasted board export, or the session so far. Checks the tracker cannot answer are reported as not applicable rather than skipped. A read-only source is fine, since it proposes changes rather than making them. Writes a file only if you ask for one.
 metadata:
   author: "Keith Crawford"
-  version: "1.1.0"
+  version: "1.1.1"
   source-canon: "altitude-check"
   ported: "2026-08-29"
 ---

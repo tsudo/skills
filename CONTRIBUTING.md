@@ -31,6 +31,22 @@ grep -rnE '/home/|/Users/|C:\\' skills/<name>
 grep -rn '\.\./' skills/<name>
 ```
 
+## Frontmatter that only one runtime reads
+
+`name` and `description` are the two fields every runtime uses. The rest are
+additive, and two of them are worth explaining because they look like promises
+they do not make.
+
+`allowed-tools` is Claude-compatible metadata. Claude Code reads it and scopes
+the skill accordingly; OpenAI runtimes ignore it. It is a hint about what a
+skill needs, not a permission grant anywhere, and it is not a security boundary
+on any runtime. Keep it accurate, and do not write a skill that depends on it
+being enforced.
+
+`compatibility` is prose for a human deciding whether to install. Nothing parses
+it. Say what the skill needs and what it writes, including what it does when the
+runtime has no writable location, because ChatGPT often does not.
+
 `agentskills` comes from the `skills-ref` package: `pip install skills-ref`.
 Both greps should return nothing. CI runs all three on every pull request.
 
