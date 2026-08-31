@@ -1,5 +1,5 @@
 {
-  "name": "crawford-skills",
+  "name": "tsudo-skills",
   "owner": {
     "name": "Keith Crawford",
     "url": "https://keithcrawford.me"
@@ -80,6 +80,30 @@
         "workstream"
       ],
       "category": "productivity"
+    },
+    {
+      "name": "deslopify",
+      "description": "Rewrite prose that reads as machine-generated into plain, direct writing, fixing structure before sentences before vocabulary.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/deslopify"
+      ],
+      "version": "1.0.0",
+      "author": {
+        "name": "Keith Crawford",
+        "url": "https://keithcrawford.me"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/tsudo/skills",
+      "repository": "https://github.com/tsudo/skills",
+      "keywords": [
+        "writing",
+        "editing",
+        "voice",
+        "prose"
+      ],
+      "category": "writing"
     }
   ]
 }

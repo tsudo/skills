@@ -3,6 +3,25 @@
 Notable changes to this repository. Skills carry their own `version` in
 `SKILL.md` frontmatter; the versions below are repository releases.
 
+## v1.3.0 — 2026-08-31
+
+### Changed
+
+- The marketplace is now named `tsudo-skills`, not `crawford-skills`. Install
+  commands are `/plugin install <skill>@tsudo-skills`. The name matches the
+  account and the repository, which is what people were already typing.
+
+### Added
+
+- `deslopify` 1.0.0. Rewrites prose that reads as machine-generated into plain,
+  direct writing, fixing structure before sentences before vocabulary. Derived
+  from [docwriter-org/plain-writing-skill](https://github.com/docwriter-org/plain-writing-skill)
+  by Shreya Shankar (MIT), sharing no lines with it.
+- First skill in this repository to ship bundled reference files. `tells.md`
+  carries the rule set and `eval-fixtures.md` carries a self-test of one input
+  per rule. Both were needed to make the SPDX-on-bundled-files CI step run
+  against a real file for the first time; it had only ever seen an empty set.
+
 ## v1.2.0 — 2026-08-29
 
 ### Changed
