@@ -20,7 +20,7 @@ These are skills I have authored or adapted. I hope you find them useful.
 
 ```text
 /plugin marketplace add tsudo/skills
-/plugin install reframe@crawford-skills
+/plugin install reframe@tsudo-skills
 ```
 
 ### If you use a cross-runtime registry
