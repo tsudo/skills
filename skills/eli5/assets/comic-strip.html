@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!-- SPDX-License-Identifier: MIT -->
+<!-- Copyright (c) 2026 Keith Crawford. Ships with the eli5 skill, github.com/tsudo/skills -->
+<!--
+  eli5 comic-strip starting point.
+  Replace PAGE_TITLE, then copy the panel block once per beat.
+  Delete every cast symbol you do not use. Swap the palette for the project's own if it has one.
+  Self-contained: no external requests.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PAGE_TITLE</title>
+<style>
+  :root {
+    --ground: #FAFAF7;
+    --panel:  #FFFFFF;
+    --scene:  #EEF1F4;
+    --ink:    #1B1F24;
+    --muted:  #59606B;
+    --accent: #0B7A75;
+    --line:   #1B1F24;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #15181C;
+      --panel:  #1D2126;
+      --scene:  #262B31;
+      --ink:    #E8EAED;
+      --muted:  #A3AAB4;
+      --accent: #4CC2BC;
+      --line:   #C9CED6;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  header {
+    border-bottom: 1px solid var(--line);
+    padding: 40px 16px 32px;
+  }
+  header h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    font-size: clamp(24px, 4.2vw, 36px);
+    line-height: 1.25;
+    margin: 0 auto;
+    max-width: 720px;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+  .step {
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 6px;
+  }
+  .panel h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    font-size: clamp(18px, 2.6vw, 22px);
+    line-height: 1.3;
+    margin: 0 0 14px;
+  }
+  .scene {
+    background: var(--scene);
+    border-radius: 3px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .scene svg { display: block; width: 100%; height: auto; }
+  .caption { margin: 0; font-size: 15px; color: var(--muted); }
+  .term { color: var(--accent); font-weight: 600; }
+
+  /* Cast. Wrap a <use> in <g class="yours"> to mark the reader's own element in the accent color. */
+  .outline { fill: none; stroke: var(--line); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .solid   { fill: var(--panel); stroke: var(--line); stroke-width: 2.2; }
+  .dot     { fill: var(--line); }
+  .yours .outline, .yours .solid { stroke: var(--accent); }
+  .yours .dot { fill: var(--accent); }
+  .move     { fill: none; stroke: var(--line); stroke-width: 2.2; marker-end: url(#tip); }
+  .move.key { stroke: var(--accent); marker-end: url(#tip-key); }
+  .tip      { fill: var(--line); }
+  .tip-key  { fill: var(--accent); }
+  .label { font: 12px -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: var(--muted); text-anchor: middle; }
+</style>
+</head>
+<body>
+
+<header><h1>PAGE_TITLE</h1></header>
+
+<!-- Cast: define each figure once, reuse it in every panel with <use>. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <marker id="tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path class="tip" d="M0,0 L10,5 L0,10 z"/>
+    </marker>
+    <marker id="tip-key" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path class="tip-key" d="M0,0 L10,5 L0,10 z"/>
+    </marker>
+
+    <symbol id="person" viewBox="0 0 48 56">
+      <circle class="solid" cx="24" cy="13" r="9"/>
+      <path class="outline" d="M24 22v20M24 28l-10 7M24 28l10 7M24 42l-8 12M24 42l8 12"/>
+    </symbol>
+
+    <symbol id="document" viewBox="0 0 44 56">
+      <path class="solid" d="M7 3h21l9 9v41H7z"/>
+      <path class="outline" d="M28 3v9h9M14 24h16M14 32h16M14 40h10"/>
+    </symbol>
+
+    <symbol id="server" viewBox="0 0 56 56">
+      <rect class="solid" x="7" y="7" width="42" height="15" rx="2"/>
+      <rect class="solid" x="7" y="26" width="42" height="15" rx="2"/>
+      <circle class="dot" cx="15" cy="14.5" r="2"/><circle class="dot" cx="15" cy="33.5" r="2"/>
+      <path class="outline" d="M24 14.5h17M24 33.5h17M28 41v7M19 48h18"/>
+    </symbol>
+
+    <symbol id="window" viewBox="0 0 72 54">
+      <rect class="solid" x="3" y="4" width="66" height="46" rx="3"/>
+      <path class="outline" d="M3 15h66M13 26h30M13 34h42M13 42h20"/>
+      <circle class="dot" cx="11" cy="9.5" r="1.8"/><circle class="dot" cx="18" cy="9.5" r="1.8"/>
+    </symbol>
+
+    <symbol id="robot" viewBox="0 0 52 56">
+      <path class="outline" d="M26 5v7"/>
+      <rect class="solid" x="9" y="12" width="34" height="25" rx="3"/>
+      <circle class="dot" cx="19" cy="23" r="2.4"/><circle class="dot" cx="33" cy="23" r="2.4"/>
+      <path class="outline" d="M20 30h12M9 22H4M43 22h5M18 37v11M34 37v11"/>
+    </symbol>
+  </defs>
+</svg>
+
+<main>
+
+  <!-- Panel: copy this block once per beat. -->
+  <section class="panel">
+    <p class="step">Step 1</p>
+    <h2>PANEL_TITLE_AS_A_SHORT_SENTENCE</h2>
+    <div class="scene">
+      <svg viewBox="0 0 460 110" role="img" aria-label="SCENE_DESCRIPTION">
+        <g class="yours"><use href="#person" x="40" y="24" width="48" height="56"/></g>
+        <text class="label" x="64" y="98">You</text>
+        <!-- "move key" (accent) only for the reader's own action; every other arrow is class="move". -->
+        <path class="move key" d="M110 52 H230"/>
+        <use href="#server" x="250" y="24" width="56" height="56"/>
+        <text class="label" x="278" y="98">LABEL</text>
+      </svg>
+    </div>
+    <p class="caption">CAPTION_THAT_ADDS_A_FACT. Introduce a key term as <span class="term">the term</span> where it first appears.</p>
+  </section>
+  <!-- /Panel -->
+
+</main>
+</body>
+</html>

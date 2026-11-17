@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Portable Agent Skills for Claude Code, Codex, and other agent runtimes.",
-    "version": "1.4.0"
+    "version": "1.5.0"
   },
   "plugins": [
     {
@@ -104,6 +104,78 @@
         "prose"
       ],
       "category": "writing"
+    },
+    {
+      "name": "retro",
+      "description": "Review the work just finished and route each lesson to the instruction file, skill, or tracker a future session will actually read, after you approve the plan.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/retro"
+      ],
+      "version": "1.0.0",
+      "author": {
+        "name": "Keith Crawford",
+        "url": "https://keithcrawford.me"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/tsudo/skills",
+      "repository": "https://github.com/tsudo/skills",
+      "keywords": [
+        "retrospective",
+        "learning",
+        "debrief",
+        "process"
+      ],
+      "category": "productivity"
+    },
+    {
+      "name": "eli5",
+      "description": "Explain an unfamiliar topic to an intelligent adult new to it, with a short walkthrough and a comic-strip HTML page when the topic has a flow.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/eli5"
+      ],
+      "version": "1.0.0",
+      "author": {
+        "name": "Keith Crawford",
+        "url": "https://keithcrawford.me"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/tsudo/skills",
+      "repository": "https://github.com/tsudo/skills",
+      "keywords": [
+        "explainer",
+        "teaching",
+        "plain-language",
+        "visual"
+      ],
+      "category": "writing"
+    },
+    {
+      "name": "council",
+      "description": "Put a real decision to a panel of independent advisor seats and get the disagreement, the deciding factors, dated criteria for open conflicts, and a labelled recommendation.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/council"
+      ],
+      "version": "1.0.0",
+      "author": {
+        "name": "Keith Crawford",
+        "url": "https://keithcrawford.me"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/tsudo/skills",
+      "repository": "https://github.com/tsudo/skills",
+      "keywords": [
+        "decision",
+        "council",
+        "pre-mortem",
+        "subagents"
+      ],
+      "category": "productivity"
     }
   ]
 }

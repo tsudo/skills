@@ -14,6 +14,9 @@ These are skills I have authored or adapted. I hope you find them useful.
 - [`grill-me`](skills/grill-me/SKILL.md) - Interviews you about a half-formed plan until it is committable, then closes with a pre-mortem. Credits: [Pocock](https://github.com/mattpocock/skills), [Miessler](https://github.com/danielmiessler/LifeOS)
 - [`altitude-check`](skills/altitude-check/SKILL.md) - Zooms out on one body of work, checks whether what is open still serves the goal, and names the single next thing to do. Works with a tracker or without one.
 - [`deslopify`](skills/deslopify/SKILL.md) - Rewrites prose that reads as machine-generated into plain, direct writing, fixing structure before sentences before vocabulary. Credits: [Shankar](https://github.com/docwriter-org/plain-writing-skill)
+- [`retro`](skills/retro/SKILL.md) - Runs a retrospective on the work you just finished and puts each lesson where the next session will load it, once you approve the plan.
+- [`eli5`](skills/eli5/SKILL.md) - Explains an unfamiliar topic to a smart adult who is new to it: a short walkthrough, then a comic-strip page when the topic has steps. Inspired by [Clarke](https://x.com/graceclarke)
+- [`council`](skills/council/SKILL.md) - Puts a real decision to a panel of independent advisor seats, then gives you the disagreement, what decides it, and a labelled recommendation. Inspired by decision-council (Fusion Software)
 
 ## Install
 
@@ -26,7 +29,7 @@ repository as one plugin.
 codex plugin marketplace add tsudo/skills
 ```
 
-Then install `tsudo-skills` from the plugin picker. Add `--ref v1.4.0` to pin a
+Then install `tsudo-skills` from the plugin picker. Add `--ref v1.5.0` to pin a
 version instead of tracking `main`.
 
 ### ChatGPT

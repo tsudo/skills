@@ -5,6 +5,31 @@ Notable changes to this repository. Skills carry their own `version` in
 move independently, and CI now fails the build if either manifest disagrees
 with what it describes.
 
+## v1.5.0 — 2026-11-17
+
+### Added
+
+- **`retro` 1.0.0.** A session retrospective that routes each lesson to the
+  narrowest file a future session loads: a skill's gotchas, a directory rules
+  file, or the project instruction file. Follow-ups go to the issue tracker
+  when one is connected. Nothing is written until the routing plan is
+  approved, and nothing outside the project without explicit approval.
+- **`eli5` 1.0.0.** Explains an unfamiliar topic to an intelligent adult who
+  is new to it: a short walkthrough in chat, then a self-contained comic-strip
+  HTML page when the topic has a flow. Ships a template that follows the
+  system light or dark setting and gives way to a project's own palette.
+  Written fresh, inspired by Grace Clarke's eli5 prompt; no text from it is
+  reused.
+- **`council` 1.0.0.** A decision council. Advisor seats run as separate
+  subagents so none can see another, tie claims to the brief, and
+  cross-examine only where they diverge. A Devil's Advocate, a Process
+  Auditor, and a Mirror test the result, and every open conflict ends with
+  dated criteria. Ships an optional advisor agent for Claude Code with no
+  file, shell, or web tools, and falls back to a general agent where a build
+  will not start it. Without subagents it does not simulate a council:
+  it offers a labelled single-context review instead. The method is inspired by Fusion Software's
+  decision-council plugin; no text from it is used.
+
 ## v1.4.0 — 2026-08-31
 
 ### Added
