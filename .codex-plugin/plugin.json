@@ -1,6 +1,6 @@
 {
   "name": "tsudo-skills",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Portable agent skills for planning, analysis, writing, and decisions. Interview a half-formed plan, zoom out on a workstream, turn an analysis into a report, rewrite prose that reads as machine-generated, run a retrospective that sticks, explain a new topic plainly, or put a decision to an independent council.",
   "skills": "./skills/",
   "author": "Keith Crawford",

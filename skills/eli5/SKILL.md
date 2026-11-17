@@ -5,7 +5,7 @@ license: MIT
 compatibility: Standalone. The chat walkthrough works anywhere. The comic strip needs a place to write one HTML file and a way to hand it to the reader; where neither exists, the walkthrough stands alone and the skill says so in one line.
 metadata:
   author: "Keith Crawford"
-  version: "1.0.0"
+  version: "1.0.1"
   source-canon: "eli5"
   ported: "2026-11-16"
 ---
@@ -49,7 +49,7 @@ Always deliver this part first, straight after the assumption line. Keep this or
 1. **Place it.** One line on where the topic lives and what it is for.
 2. **The point, in one sentence.** If the reader stops here, they have it.
 3. **How it works, in numbered steps.** About five steps, one or two sentences each, each written the way a person would say it aloud. Drop the small, telling facts in as asides, since they are what make the mechanism click.
-4. **Teach terms where they happen.** Bold a key term the moment it appears in the story and define it in a few words there. Never front-load a glossary. Teach at most three new terms; needing a fourth means the topic is too big for one answer. When the topic is itself a term, such as "what is an API", define it in the one-sentence point.
+4. **Teach terms where they happen.** Bold a key term the moment it appears in the story and define it in a few words there. Never front-load a glossary. Teach the terms the reader will meet next: the words they would need to search the topic or follow a conversation about it. Four new terms is a ceiling, not a target; needing more means the topic is too big for one answer. When the topic is itself a term, such as "what is an API", define it in the one-sentence point.
 5. **One closing point.** A last line that makes the whole mechanism feel obvious in hindsight. It restates what the steps showed in one sentence; it does not add a claim the steps did not make.
 
 Keep everything from the assumption line to the closing point under about 250 words. The hand-over line does not count.
@@ -104,7 +104,7 @@ When a follow-up shows the reader already knows a part, skip that part and go de
 
 ## Language
 
-- **Name the real thing.** A specific, literal term beats an analogy almost every time. Keep the field's jargon, defined once in a few words, because the reader needs it to search the topic or talk to someone in the field.
+- **Name the real thing.** A specific, literal term beats an analogy almost every time. Keep the field's jargon, defined once in a few words, because the reader needs it to search the topic or talk to someone in the field. When a plain description stands in for a term, give the term too: "a fingerprint of the contents, called a **hash**", not "a fingerprint" alone.
 - **Ration analogies.** Use one only when no plain word exists, hold it to a single sentence drawn from adult life, such as a receptionist routing a call. Never toy boxes, magic helpers, or lemonade stands.
 - **Use what the reader already owns.** "The bank approves the transfer" needs no explanation.
 

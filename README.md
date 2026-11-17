@@ -29,7 +29,7 @@ repository as one plugin.
 codex plugin marketplace add tsudo/skills
 ```
 
-Then install `tsudo-skills` from the plugin picker. Add `--ref v1.5.0` to pin a
+Then install `tsudo-skills` from the plugin picker. Add `--ref v1.5.1` to pin a
 version instead of tracking `main`.
 
 ### ChatGPT

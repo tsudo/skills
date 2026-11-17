@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Portable Agent Skills for Claude Code, Codex, and other agent runtimes.",
-    "version": "1.5.0"
+    "version": "1.5.1"
   },
   "plugins": [
     {
@@ -137,7 +137,7 @@
       "skills": [
         "./skills/eli5"
       ],
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Keith Crawford",
         "url": "https://keithcrawford.me"

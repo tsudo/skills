@@ -5,6 +5,20 @@ Notable changes to this repository. Skills carry their own `version` in
 move independently, and CI now fails the build if either manifest disagrees
 with what it describes.
 
+## v1.5.1 — 2026-11-17
+
+### Changed
+
+- `eli5` 1.0.0 → 1.0.1. **The cap of three new terms is gone.** It now asks
+  for the terms the reader will meet next, with four as a ceiling, and for the
+  real word whenever a plain description stands in for one. In a blind
+  comparison on three topics, the cap made answers drop the terms readers
+  need next, such as "hash" and "credit report". Wording only; the procedure
+  and the output are unchanged.
+- CI actions moved to v7 (`checkout`, `setup-python`, `upload-artifact`),
+  clearing the Node 20 deprecation warning. `dependabot.yml` now watches them
+  monthly.
+
 ## v1.5.0 — 2026-11-17
 
 ### Added
